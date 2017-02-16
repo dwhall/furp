@@ -248,7 +248,7 @@ class Furp:
         self._plugins = {}
 
         for path in [os.path.join(self.get_app_data_path(), "plugins"),
-                     os.path.join(os.getcwd(), "plugins"), # FOR DEVELOPMENT ONLY
+                     os.path.join(os.path.split(os.path.realpath(__file__))[0], "plugins"), # FOR DEVELOPMENT ONLY
                     ]:
             if os.path.isdir(path):
                 for path_item in os.listdir(path): # path_item is potentially a plugin's name
